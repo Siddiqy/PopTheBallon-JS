@@ -15,8 +15,12 @@ img {
 }
 
 .header {
+    position: fixed;
+    left: 0;
+    right: 0;
     text-align: center;
-    padding: 30px 0px;
+    padding: 30px 0px 0px;
+    background-color: #ffffff;
 }
 
 .header h1 {
@@ -29,15 +33,15 @@ img {
     display: flex;
     justify-content: center;
     margin: 30px 0px;
+    text-align: center;
 }
 
-.game-menu div {
-    float: left;
-}
+.game-menu div { float: left; }
 
 .ballon-container {
     width: 75%;
     height: auto;
+    padding-top: 200px;
     margin-left: 14%;
     margin-right: 11%;
 }
@@ -46,17 +50,24 @@ img {
     margin: 0px 20px;
 }
 
-.timer-menu h3 {
+.timer-menu div {
     display: inline-block;
     padding-right: 10px;
 }
 
-.timer {
+.timer-menu div h3 { 
+    padding-top: 3px; 
+    padding-right: 10px;
+}
+
+.timer, .points {
     padding-left: 5px;
     font-weight: 300;
 }
 
-.score-menu { align-self: center; }
+.score-menu { 
+    align-self: center;
+ }
 
 #colors {
     height: 28px;
@@ -65,6 +76,8 @@ img {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+
+#colors:focus { outline: none; }
 
 #colors > option {
     font-size: 1em;
@@ -75,12 +88,15 @@ img {
     float: right;
     height: 28px;
     width: 28px;
-    border: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
 }
 
-.start-btn {
+.start-btn, .stop-btn {
     border-style: none;
-    font-weight: 600;
+    font-size: 0.8em;
+    font-weight: 700;
     color: #fff;
     padding: 7px 15px;
     cursor: pointer;
@@ -89,10 +105,18 @@ img {
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.589);
 }
 
+.stop-btn { background-color: #6d7571; }
+
 .ballon-container div > img {
     float: left;
     overflow: auto;
     align-self: center;
 }
 
+.ballon {
+    cursor: pointer;
+}
+
+.hide { display: none; }
+.show { display: block; }
 

@@ -10,11 +10,10 @@
         <header>
             <div class="header">
                 <h1>Pop The Ballons</h1>
-
                 <div class="game-menu">
                     <div class="color-menu">
                         <select name="colors" id="colors">
-                            <option value="">Select Color</option>
+                            <option value="null">Select Color</option>
                             <option value="red" style="color: #CC1600;">Red</option>
                             <option value="green" style="color: #00A018;">Green</option>
                             <option value="blue" style="color: #0099CF;">Blue</option>
@@ -25,7 +24,7 @@
                             <option value="golden" style="color: #D29529;">Golden</option>
                             <option value="slimgreen" style="color: #9EE24F;">Slim Green</option>
                             <option value="darkgreen" style="color: #00951F;">Dark Green</option>
-                            <option value="darkblue" style="color: #4882AF;">Dark Blue</option>
+                            <option value="darkblue" style="color: #3F7FBB;">Dark Blue</option>
                             <option value="darkpink" style="color: #EC118F;">Dark Pink</option>
                             <option value="darkred" style="color: #780117;">Dark Red</option>
                             <option value="darkyellow" style="color: #F0B31A;">Dark Yellow</option>
@@ -33,17 +32,25 @@
                         <div class="color-prev"></div>
                     </div>
                     <div class="timer-menu">
-                        <h3>Timer: <span class="timer">01:00</span></h3> <button type="button" class="start-btn">Start Game</button>
+                        <div>
+                            <h3>Timer: <span class="timer">2:00</span></h3>
+                        </div>
+                        <div>
+                            <button type="button" class="start-btn">Start Game</button>
+                        </div>
+                        <div>
+                            <button type="button" class="stop-btn">Stop Game</button>
+                        </div> 
                     </div>
                     <div class="score-menu">
-                        <h3>Points: <span class="points"></span></h3>
+                        <h3>Points: <span class="points">0</span></h3>
                     </div>
                 </div>
             </div>
         </header>
         <main>
             <div class="ballon-container">
-                <img class="ballon blue" src="images/blue.png" alt="img">
+                <img class="ballon" data-value="blue" src="images/blue.png" alt="img">
                 <img class="ballon red" src="images/red.png" alt="img">
                 <img class="ballon green" src="images/green.png" alt="img">
                 <img class="ballon darkpink" src="images/darkpink.png" alt="img">
