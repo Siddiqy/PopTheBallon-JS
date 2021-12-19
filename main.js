@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let stopGame = document.querySelector('.stop-btn');
 
     let ballons = document.querySelector('.ballon-container');
-    let ballon = document.querySelector('.ballon')
 
     timerMenu.classList.add('hide');
     scoreMenu.classList.add('hide');
@@ -148,9 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function startTimer() {
 
         var minute = 1;
-        var sec = 60;
+        var sec = 59;
 
-        const secTimer = setInterval(function() {
+        const gameTimer = setInterval(function() {
             timer.innerHTML = "";
             timer.append(minute+":"+ sec);
             sec--;
@@ -160,9 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 sec = 60;
 
                 if (minute == -1) {
+
                     timer.innerHTML = "";
                     timer.append("00:00");
-                    clearInterval(secTimer);
+                    clearInterval(gameTimer);
                     ballons.remove();
                 }
             }
@@ -170,7 +170,108 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
+    let score = 0;
+
     function popBallon(targetBallon) {
-        
+        document.addEventListener('click', function(e){
+
+            if(e.target.className === "red" && targetBallon === "red"){
+
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }
+            else if(e.target.className === "green" && targetBallon === "green"){
+
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }   
+            else if(e.target.className === "blue" && targetBallon === "blue") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "yellow" && targetBallon === "yellow") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "pink" && targetBallon === "pink") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "orange" && targetBallon === "orange") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "naviblue" && targetBallon === "naviblue") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+
+            else if(e.target.className === "slimgreen" && targetBallon === "slimgreen") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "darkgreen" && targetBallon === "darkgreen") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "darkblue" && targetBallon === "darkblue") {
+               
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }  
+            else if(e.target.className === "darkpink" && targetBallon === "darkpink") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }
+            else if(e.target.className === "darkred" && targetBallon === "darkred") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            }   
+
+            else if(e.target.className === "darkyellow" && targetBallon === "darkyellow") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+            } 
+            else {
+                
+            }
+        });
     }
+
 });
