@@ -12,113 +12,149 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let ballons = document.querySelector('.ballon-container');
 
-    timerMenu.classList.add('hide');
-    scoreMenu.classList.add('hide');
-    stopGame.classList.add('hide');
-    ballons.classList.add('hide');
+    //Ballon color selection
+    colors.addEventListener('change', (e) => {
 
-    colors.addEventListener('change', (event) => {
-
-        const selected = event.target;
-        const value = colors.value;
+        const selected = e.target;
 
         if(selected.value === "red") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#CC1600';
-            popBallon(selected.value);
+
+            let animation = document.querySelectorAll('.red');
+            difficultyEasy(animation, "red");
         }
         else if(selected.value === "green") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#00A018';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.green');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "green");
         }
         else if(selected.value === "blue") {
             
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#0099CF';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.blue');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "blue");
         }
         else if(selected.value === "yellow") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#faee44';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.yellow');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "yellow");
         }
         else if(selected.value === "pink") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#F6CADF';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.pink');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "pink");
         }
         else if(selected.value === "orange") {
             
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#FA5D2D';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.orange');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "orange");
         }
         else if(selected.value === "naviblue") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#553D95';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.naviblue');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "naviblue");
         }
         else if(selected.value === "golden") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#D29529';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.golden');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "golden");
         }
         else if(selected.value === "slimgreen") {
             
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#9EE24F';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.slimgreen');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "slimgreen");
         }
         else if(selected.value === "darkgreen") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#00951F';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.darkgreen');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "darkgreen");
         }
         else if(selected.value === "darkblue") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#3F7FBB';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.darkblue');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "darkblue");
         }
         else if(selected.value === "darkpink") {
             
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#EC118F';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.darkpink');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "darkpink");
         }
         else if(selected.value === "darkred") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#780117';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.darkred');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "darkred");
         }
         else if(selected.value === "darkyellow") {
 
             timerMenu.classList.add('show');
             scoreMenu.classList.add('show');
             colorPrev.style.backgroundColor = '#F0B31A';
-            popBallon(selected.value);
+            
+            let animation = document.querySelectorAll('.darkyellow');
+            difficultyEasy(animation);
+            difficultyEasy(animation, "darkyellow");
         }
         else {
             colorPrev.style.backgroundColor = '#ffffff';
@@ -126,8 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         startGame.addEventListener('click', () => {
 
-            if(selected.value !== "null") {
+            var startSound = new Audio("audio/play.mp3");
 
+            if(selected.value !== "null") {
+                
+                startSound.play();
                 startGame.classList.add('hide');
                 stopGame.classList.add('show');
                 ballons.classList.add('show');
@@ -139,11 +178,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    //Stoping the game
     stopGame.addEventListener('click', () => {
 
         window.location.reload();
     });
 
+    //Game timer => 2 minutes
     function startTimer() {
 
         var minute = 1;
@@ -170,180 +211,135 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
+    //Difficulty & target selection
+    function difficultyEasy(name, target) {
+
+        name.forEach((e) => {
+            e.classList.add('animation');
+        });
+
+        popBallon(target);
+    }
+
+    //Poping the target ballon
     let score = 0;
 
     function popBallon(targetBallon) {
 
+        var pop = new Audio("audio/pop.mp3");
+
         document.addEventListener('click', function(e){
 
-            if(e.target.className === "red" && targetBallon === "red"){
+            if(e.target.className === "red animation" && targetBallon === "red"){
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+                pop.play();
+            }
+            else if(e.target.className === "green animation" && targetBallon === "green"){
 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }
-            else if(e.target.className === "red" && targetBallon !== "red"){
-
-                points.innerHTML = "";
-                score--;
-                points.append(score);
-            }
-            else if(e.target.className === "green" && targetBallon === "green"){
-
-                e.target.remove();
-                points.innerHTML = "";
-                score += 1;
-                points.append(score);
+                pop.play();
             } 
-            else if(e.target.className === "green" && targetBallon !== "green"){
-
-                points.innerHTML = "";
-                score--;
-                points.append(score);
-            }   
-            else if(e.target.className === "blue" && targetBallon === "blue") {
+            else if(e.target.className === "blue animation" && targetBallon === "blue") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            } 
-            else if(e.target.className === "blue" && targetBallon !== "blue") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
-            } 
-            else if(e.target.className === "yellow" && targetBallon === "yellow") {
-                
-                e.target.remove();
-                points.innerHTML = "";
-                score += 1;
-                points.append(score);
-            }  
-            else if(e.target.className === "yellow" && targetBallon !== "yellow") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
-            } 
-            else if(e.target.className === "pink" && targetBallon === "pink") {
-                
-                e.target.remove();
-                points.innerHTML = "";
-                score += 1;
-                points.append(score);
-            }  
-            else if(e.target.className === "pink" && targetBallon !== "pink") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "orange" && targetBallon === "orange") {
+            else if(e.target.className === "yellow animation" && targetBallon === "yellow") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }  
-            else if(e.target.className === "orange" && targetBallon !== "orange") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "naviblue" && targetBallon === "naviblue") {
+            else if(e.target.className === "pink animation" && targetBallon === "pink") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }  
-            else if(e.target.className === "naviblue" && targetBallon !== "naviblue") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "slimgreen" && targetBallon === "slimgreen") {
+            else if(e.target.className === "orange animation" && targetBallon === "orange") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }  
-            else if(e.target.className === "slimgreen" && targetBallon !== "slimgreen") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "darkgreen" && targetBallon === "darkgreen") {
+            else if(e.target.className === "naviblue animation" && targetBallon === "naviblue") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }  
-            else if(e.target.className === "darkgreen" && targetBallon !== "darkgreen") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "darkblue" && targetBallon === "darkblue") {
+            else if(e.target.className === "golden animation" && targetBallon === "golden") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+                pop.play();
+            }
+            else if(e.target.className === "slimgreen animation" && targetBallon === "slimgreen") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+                pop.play();
+            }
+            else if(e.target.className === "darkgreen animation" && targetBallon === "darkgreen") {
+                
+                e.target.remove();
+                points.innerHTML = "";
+                score += 1;
+                points.append(score);
+                pop.play();
+            }
+            else if(e.target.className === "darkblue animation" && targetBallon === "darkblue") {
                
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }  
-            else if(e.target.className === "darkblue" && targetBallon !== "darkblue") {
-               
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "darkpink" && targetBallon === "darkpink") {
+            else if(e.target.className === "darkpink animation" && targetBallon === "darkpink") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
+                pop.play();
             }
-            else if(e.target.className === "darkpink" && targetBallon !== "darkpink") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
-            }
-            else if(e.target.className === "darkred" && targetBallon === "darkred") {
+            else if(e.target.className === "darkred animation" && targetBallon === "darkred") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            }   
-            else if(e.target.className === "darkred" && targetBallon !== "darkred") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
-            } 
-            else if(e.target.className === "darkyellow" && targetBallon === "darkyellow") {
+                pop.play();
+            }
+            else if(e.target.className === "darkyellow animation" && targetBallon === "darkyellow") {
                 
                 e.target.remove();
                 points.innerHTML = "";
                 score += 1;
                 points.append(score);
-            } 
-            else if(e.target.className === "darkyellow" && targetBallon !== "darkyellow") {
-                
-                points.innerHTML = "";
-                score--;
-                points.append(score);
+                pop.play();
             }
             else {
                 console.log(e.target);
